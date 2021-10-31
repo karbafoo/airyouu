@@ -1,0 +1,9 @@
+:host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  padding: calc(0.1rem + 2vmin);
+}

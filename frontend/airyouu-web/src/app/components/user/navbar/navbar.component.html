@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    aria-label="menu-button"
+    (click)="toggleDrawer.emit()"
+  >
+    <mat-icon aria-hidden="false">menu</mat-icon>
+  </button>
+  <div style="flex: 1">{{ "Hi " + getProfile()?.name }}</div>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+    (click)="goHome()"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="logout()"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>

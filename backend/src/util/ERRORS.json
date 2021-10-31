@@ -1,0 +1,12 @@
+{
+    "STATUS_INVALID": {"code": 404, "name": "STATUS_INVALID", "self": true},
+    "AUTH_INVALID": {"code": 404, "name": "AUTH_INVALID", "self": true},
+    "USER_NOT_FOUND": {"code": 404, "name": "USER_NOT_FOUND", "self": true},
+    "EMAIL_INVALID": {"code": 404, "name": "EMAIL_INVALID", "self": true},
+    "PACKAGE_NOT_FOUND": {
+        "code": 404,
+        "name": "PACKAGE_NOT_FOUND",
+        "self": true
+    },
+    "POINT_NOT_FOUND": {"code": 404, "name": "POINT_NOT_FOUND", "self": true}
+}

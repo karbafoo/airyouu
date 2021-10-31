@@ -1,0 +1,50 @@
+@import "~leaflet/dist/leaflet.css";
+html,
+body {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: calc(1rem + 1vmin);
+}
+
+.red-snackbar {
+  background-color: crimson;
+}
+
+.green-snackbar {
+  background-color: #00aa44;
+}
+.highlightable-row {
+  cursor: pointer;
+  &:hover {
+    background-color: lightgrey;
+  }
+}
+
+.sector {
+  width: 100%;
+  border: 1px solid grey;
+  min-height: 25rem;
+  background-color: white;
+  padding: calc(0.1rem + 1vmin);
+}
+
+.edit-input {
+  border: none;
+  width: 100%;
+  input {
+    color: #232323 !important;
+  }
+}
+
+.btn {
+  &.green {
+    background-color: limegreen;
+  }
+}

@@ -1,0 +1,45 @@
+<mat-tab-group backgroundColor="primary" style="width: 100%">
+  <mat-tab label="Details">
+    <div class="sector">
+      Details
+      <form [formGroup]="adminForm">
+        <mat-form-field class="edit-input" appearance="fill" disabled>
+          <mat-label>Database ID</mat-label>
+          <input matInput placeholder="Name" formControlName="admin_id" />
+        </mat-form-field>
+        <mat-form-field class="edit-input" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Name"
+            formControlName="name"
+            (blur)="onUpdate('name')"
+          />
+          <mat-icon
+            style="cursor: pointer"
+            matSuffix
+            (click)="onEnableEdit('name')"
+            >mode_edit</mat-icon
+          >
+        </mat-form-field>
+        <mat-form-field class="edit-input" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            placeholder="Name"
+            formControlName="email"
+            (blur)="onUpdate('email')"
+          />
+          <mat-icon
+            style="cursor: pointer"
+            matSuffix
+            (click)="onEnableEdit('email')"
+            >mode_edit</mat-icon
+          >
+        </mat-form-field>
+      </form>
+    </div>
+  </mat-tab>
+  <mat-tab label="Http Log" disabled> Http Log </mat-tab>
+  <mat-tab label="Socket Log" disabled> Socket Log </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,41 @@
+<div class="list-container">
+  <h3>Your Packages:</h3>
+
+  <table
+    mat-table
+    [dataSource]="getPackages()"
+    class="mat-elevation-z8"
+    style="width: 100%"
+  >
+    <ng-container matColumnDef="package_id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.package_id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef>User</th>
+      <td mat-cell *matCellDef="let element">{{ element.user.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="items">
+      <th mat-header-cell *matHeaderCellDef>Items</th>
+      <td mat-cell *matCellDef="let element">{{ element.items.length }}</td>
+    </ng-container>
+    <ng-container matColumnDef="points">
+      <th mat-header-cell *matHeaderCellDef>Points</th>
+      <td mat-cell *matCellDef="let element">{{ element.points.length }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: displayedColumns"
+      class="highlightable-row"
+      [routerLink]="['../details/', element.package_id]"
+    ></tr>
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 50]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </table>
+</div>

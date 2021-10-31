@@ -1,0 +1,39 @@
+.auth-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: calc(20rem + 2vmin);
+    border: 1px solid grey;
+    border-radius: 3px;
+    background-color: #f1f2f3;
+    box-shadow: 0 0 2rem 0.5rem lightgray;
+    h3 {
+      font-weight: 700;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    form {
+      padding: 1rem;
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+
+  .float {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+  }
+}

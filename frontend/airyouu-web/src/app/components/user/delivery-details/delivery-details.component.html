@@ -1,0 +1,112 @@
+<div class="delivery-container">
+  <div id="map">
+    <div class="nbar">
+      <div
+        *ngFor="let r of getRoutes(); let i = index"
+        class="nbar-item"
+        [class]="this.package ? this.package.points[i].status : ''"
+        (click)="playROute(r)"
+      >
+        <span>#{{ i + 1 }} </span><span>FROM</span><span>---</span
+        ><span>TO</span>
+      </div>
+    </div>
+  </div>
+  <div class="delivery-sidebar">
+    Delivery Details:
+    <div class="sector">
+      <div>
+        <span>{{ "Status: " }}</span>
+        <span>{{ package?.status }}</span>
+      </div>
+
+      <div class="table-header">
+        <p>Items:</p>
+      </div>
+      <table
+        mat-table
+        [dataSource]="getItems()"
+        class="mat-elevation-z8"
+        style="width: 100%"
+        #itemTable
+      >
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+        </ng-container>
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef>Weight</th>
+          <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+        </ng-container>
+        <ng-container matColumnDef="volume">
+          <th mat-header-cell *matHeaderCellDef>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element.volume }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedItemColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let element; columns: displayedItemColumns"
+        ></tr>
+
+        <mat-paginator
+          [pageSizeOptions]="[10, 20, 50]"
+          showFirstLastButtons
+          aria-label="Select page of items"
+        >
+        </mat-paginator>
+      </table>
+
+      <div class="table-header">
+        <p>Points:</p>
+      </div>
+      <table
+        mat-table
+        [dataSource]="getPoints()"
+        class="mat-elevation-z8"
+        style="width: 100%"
+        #pointTable
+      >
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.status || "---" }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>Position</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.position.lat + ", " + element.position.lng }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="foo">
+          <th mat-header-cell *matHeaderCellDef>-</th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <span *ngIf="getLastPending(i)"> CURRENT DESTINATION </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedPointColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let element; columns: displayedPointColumns"
+        ></tr>
+
+        <mat-paginator
+          [pageSizeOptions]="[10, 20, 50]"
+          showFirstLastButtons
+          aria-label="Select page of items"
+        >
+        </mat-paginator>
+      </table>
+    </div>
+  </div>
+</div>

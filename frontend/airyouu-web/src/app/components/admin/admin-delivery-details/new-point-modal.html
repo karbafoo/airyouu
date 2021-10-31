@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>Add New Item</p>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput (keyup)="onNameChange($event)" />
+    </mat-form-field>
+    <div id="map1" style="width: 100%; height: 400px"></div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">BACK</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onDoneClick()"
+    cdkFocusInitial
+  >
+    Done
+  </button>
+</div>

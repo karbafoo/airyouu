@@ -1,0 +1,37 @@
+<div class="list-container">
+  <h3>Admins List:</h3>
+
+  <table
+    mat-table
+    [dataSource]="getAdmins()"
+    class="mat-elevation-z8"
+    style="width: 100%"
+  >
+    <ng-container matColumnDef="admin_id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.admin_id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: displayedColumns"
+      class="highlightable-row"
+      [routerLink]="['../details/', element.admin_id]"
+    ></tr>
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 50]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </table>
+</div>

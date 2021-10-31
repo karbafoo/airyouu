@@ -1,0 +1,26 @@
+<div class="auth-container">
+  <div class="float">
+    <a routerLink="/user/auth"> User Area</a>
+  </div>
+  <div class="auth-form">
+    <h3>Admin Login</h3>
+    <form (onsubmit)="onLogin($event)" [formGroup]="loginForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="onLogin($event)"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

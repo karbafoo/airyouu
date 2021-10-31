@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>Add New Item</p>
+  <form [formGroup]="newItemForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <input matInput formControlName="quantity" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input matInput formControlName="weight" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Volume</mat-label>
+      <input matInput formControlName="volume" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">BACK</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="newItemForm.value"
+    cdkFocusInitial
+  >
+    Done
+  </button>
+</div>
